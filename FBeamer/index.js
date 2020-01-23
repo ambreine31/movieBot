@@ -12,7 +12,7 @@ class FBeamer{
     token = params['hub.verify_token'],
     challenge = params['hub.challenge'];
     try{
-      if(mode === 'subscribe' && token === VerifyToken){
+      if(mode === 'subscribe' && token === this.VerifyToken){
         console.log("Webhook is registered");
         return res.send(challenge);
       }else{

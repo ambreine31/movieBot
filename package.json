@@ -13,6 +13,7 @@
   "author": "Ambre",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ngrok": "^3.2.7"
   }
 }

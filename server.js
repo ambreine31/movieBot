@@ -9,5 +9,5 @@ const PORT = process.env.PORT || 3000;
 
 const fb = new FBeamer(conf.FB);
 
-server.get('/', (req,res) => res.send(fb));
+server.get('/', (req,res) => fb.registerHook(req,res));
 server.listen(PORT, ()=>console.log('the bot server is running on port ${PORT}'));
