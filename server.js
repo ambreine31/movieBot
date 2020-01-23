@@ -2,10 +2,12 @@
 
 const express = require('express');
 const conf = require('./config');
-const beamer = require('./FBeamer');
+const FBeamer = require('./FBeamer');
 
 const server = express();
 const PORT = process.env.PORT || 3000;
 
-server.get('/', (req,res) => res.send("hello!!"));
+const fb = new FBeamer(conf.FB);
+
+server.get('/', (req,res) => res.send(fb));
 server.listen(PORT, ()=>console.log('the bot server is running on port ${PORT}'));
