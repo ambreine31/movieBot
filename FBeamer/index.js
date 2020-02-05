@@ -5,10 +5,12 @@ class FBeamer{
   constructor({pageAccessToken, VerifyToken}){
     this.pageAccessToken = pageAccessToken;
     this.VerifyToken = VerifyToken;
+
   }
 
   registerHook(req,res) {
     const params = req.query;
+    console.log(params);
     const mode = params['hub.mode'],
     token = params['hub.verify_token'],
     challenge = params['hub.challenge'];
@@ -31,6 +33,7 @@ class FBeamer{
     if(data.object === 'page'){
       data.entry.forEach(pageObj => {
         console.log(pageObj.messaging);
+        cb(pageObj.messaging)
       });
     }
     res.sendStatus(200);
