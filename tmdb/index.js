@@ -6,8 +6,13 @@ const extractEntity = (nlp, entity) =>{
 }
 
 module.exports = nlpData =>{
-  return new Promise((resolve, reject){
-    let intent = extractEntity(nlpData, 'intent');
-    resolve(intent);
+  return new Promise(async(resolve, reject)=>{
+    try{
+      let intent = extractEntity(nlpData, 'intent');
+      resolve(intent);
+    }
+    catch(error){
+      reject(error);
+    }
   });
 }
